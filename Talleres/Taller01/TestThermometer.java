@@ -3,14 +3,39 @@ public class TestThermometer {
 
      Thermometer thermometer = new Thermometer();
 
-        System.out.println("Temperatura inicial: " + thermometer.getTemperature());
+       //Correction test
+       if(thermometer.setTemperature(100)==true){
+           System.out.println("Temperature successfully accepted.");
+           System.out.println(thermometer.getTemperature());
+        }else{
+            System.out.println("unacceptable temperature");
+        }
 
-        boolean result = thermometer.setTemperature(25);
-        System.out.println("¿Temperatura aceptada? " + result);
-        System.out.println("Temperatura actual: " + thermometer.getTemperature());
+        //test 1
 
-        result = thermometer.setTemperature(120);
-        System.out.println("¿Temperatura aceptada? " + result);
-        System.out.println("Temperatura actual: " + thermometer.getTemperature());
+        if (thermometer.setTemperature(-51)) {
+          System.out.println("Temperature successfully accepted. ");
+        }else{
+          System.out.println("unacceptable temperature");
+        }
+
+        //test 2 
+
+        if (thermometer.setTemperature(0)) {
+          System.out.println("Temperature successfully accepted ");
+        }else{
+          System.out.println("unacceptable temperature");
+        }
+
+        //test 3 
+
+          if (thermometer.setTemperature(110)) {
+          System.out.println("Temperature successfully accepted");
+        }else{
+          System.out.println("unacceptable temperature");
+        }
+    
+
+
     }
 }

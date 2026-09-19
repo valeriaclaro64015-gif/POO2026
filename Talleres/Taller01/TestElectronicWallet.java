@@ -1,79 +1,67 @@
 public class TestElectronicWallet {
     public static void main(String[] args) {
-
-        ElectronicWallet wallet = new ElectronicWallet("valeria");
-
-        System.out.println("Owner: " + wallet.getOwner());
-        System.out.println("Initial balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Valid top-up
-        boolean accepted = wallet.topUp(800000);
-        if (accepted) {
-            System.out.println("Top-up of $800000 accepted.");
-        } else {
-            System.out.println("Top-up of $800000 rejected.");
+        ElectronicWallet wallet1 = new ElectronicWallet();
+       
+        //test 1
+        System.out.println("FIRST TEST");
+        if(wallet1.setOwner("david")==true){
+          System.out.println("nombre aceptado con exito");
+        }else{
+            System.out.println("nombre no aceptado");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Invalid top-up
-        accepted = wallet.topUp(-50000);
-        if (accepted) {
-            System.out.println("Invalid top-up accepted.");
-        } else {
-            System.out.println("Invalid top-up rejected.");
+        //recarga
+        if(wallet1.settopUp(300)==true){
+          System.out.println("recarga aceptada con exito");
+        }else{
+            System.out.println("recarga no aceptada");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Valid payment
-        accepted = wallet.pay(100000);
-        if (accepted) {
-            System.out.println("Payment of $100000 accepted.");
-        } else {
-            System.out.println("Payment of $100000 rejected.");
+        //pago
+        if(wallet1.setpayment(200)==true){
+          System.out.println("pago aceptado con exito");
+        }else{
+            System.out.println("pago no aceptado fuera del rango");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Payment above $500000
-        accepted = wallet.pay(600000);
-        if (accepted) {
-            System.out.println("Payment of $600000 accepted.");
-        } else {
-            System.out.println("Payment of $600000 rejected.");
+        System.out.println("el balance final es = "+wallet1.getBalance());
+        //proof 2
+        System.out.println("SECOND TEST");
+        if(wallet1.setOwner("david")==true){
+          System.out.println("nombre acepatdo con exito");
+        }else{
+            System.out.println("nombre no aceptado");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Valid payment of exactly $500000
-        accepted = wallet.pay(500000);
-        if (accepted) {
-            System.out.println("Payment of $500000 accepted.");
-        } else {
-            System.out.println("Payment of $500000 rejected.");
+        //recarga
+        if(wallet1.settopUp(-50000)==true){
+          System.out.println("recarga aceptada con exito");
+        }else{
+            System.out.println("recarga no aceptada");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Payment above available balance
-        accepted = wallet.pay(300000);
-        if (accepted) {
-            System.out.println("Payment of $300000 accepted.");
-        } else {
-            System.out.println("Payment of $300000 rejected.");
+        //pago
+        if(wallet1.setpayment(200)==true){
+          System.out.println("pago aceptado con exito");
+        }else{
+            System.out.println("pago no aceptado fuera del rango");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
-        System.out.println();
-
-        // Invalid payment
-        accepted = wallet.pay(-10000);
-        if (accepted) {
-            System.out.println("Invalid payment accepted.");
-        } else {
-            System.out.println("Invalid payment rejected.");
+        System.out.println("el balance final es = "+wallet1.getBalance());
+        //proof 3
+        System.out.println("THIRD TEST");
+        if(wallet1.setOwner("david")==true){
+          System.out.println("nombre acepatdo con exito");
+        }else{
+            System.out.println("nombre no aceptado");
         }
-        System.out.println("Current balance: $" + wallet.getBalance());
+        //recarga
+        if(wallet1.settopUp(300)==true){
+          System.out.println("recarga aceptada con exito");
+        }else{
+            System.out.println("recarga no aceptada");
+        }
+        //pago
+        if(wallet1.setpayment(-56900)==true){
+          System.out.println("pago aceptado con exito");
+        }else{
+            System.out.println("pago no aceptado fuera del rango");
+        }
+        System.out.println("el balance final es = "+wallet1.getBalance());
     }
 }
+
